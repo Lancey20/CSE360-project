@@ -12,3 +12,5 @@ Rachel was able to access and commit
 Amber's commit
 
 Grace has accessed
+
+Lance's commit

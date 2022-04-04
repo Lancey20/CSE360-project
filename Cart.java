@@ -19,12 +19,11 @@ public boolean addItem(MenuItem item)
 	
 	return true;
 }
-
 public boolean removeItem(MenuItem item)
 {
 	for(int i = 0; i < itemsInCart.size(); i++)
 	{
-		if(itemsInCart.get(i) == item)//I know this isn't right, I will update when I have code for MenuItem
+		if(itemsInCart.get(i).getName().equals(item.getName()))
 		{
 			itemsInCart.remove(i);
 			return true;

@@ -23,6 +23,7 @@ abstract class User {
 		billingAddr = addr; 
 		ccvNum = ccv; 
 		exprDate = expr; 
+		loginStatus = true; 
 	}
 	
 	public String getName() {

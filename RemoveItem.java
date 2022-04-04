@@ -128,7 +128,7 @@ public class RemoveItem extends Application
         gridPane.add(imageField, 1,7);
         
         // Add Submit Button
-        Button submitButton = new Button("Update Item");
+        Button submitButton = new Button("Remove Item");
         submitButton.setPrefHeight(40);
         submitButton.setDefaultButton(true);
         submitButton.setPrefWidth(100);

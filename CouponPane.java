@@ -16,6 +16,8 @@ import javafx.stage.Window;
 
 public class CouponPane extends Application
 {
+	Coupon currentCoupon = new Coupon();
+	
 	@Override
 	public void start(Stage primaryStage) 
 	{
@@ -119,7 +121,6 @@ public class CouponPane extends Application
                     return;
                 }             
                 
-                Coupon currentCoupon = new Coupon();
                 double discount = Double.valueOf(discountField.getText());
                 currentCoupon.createCoupon(codeField.getText(), discount);
                 

@@ -57,7 +57,7 @@ public class AddNewItem extends Application
 	private void addControls(GridPane gridPane)
 	{
 	// Add Back to Account Button
-        Button backButton = new Button("Back to Account");
+        Button backButton = new Button("Back to Profile");
         backButton.setPrefHeight(40);
         backButton.setDefaultButton(true);
         backButton.setPrefWidth(100);

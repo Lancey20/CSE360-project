@@ -56,8 +56,8 @@ public class AddNewItem extends Application
 	
 	private void addControls(GridPane gridPane)
 	{
-		// Add Back to Menu Button
-        Button backButton = new Button("Back to Menu");
+	// Add Back to Account Button
+        Button backButton = new Button("Back to Account");
         backButton.setPrefHeight(40);
         backButton.setDefaultButton(true);
         backButton.setPrefWidth(100);
@@ -71,7 +71,7 @@ public class AddNewItem extends Application
         GridPane.setHalignment(resturantLabel, HPos.CENTER);
         GridPane.setMargin(resturantLabel, new Insets(10, 0,10,0));
         
-		Label headerLabel = new Label("Add New Menu Item");
+	Label headerLabel = new Label("Add New Menu Item");
         headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 12));
         gridPane.add(headerLabel, 0,1,2,1);
         GridPane.setHalignment(headerLabel, HPos.LEFT);

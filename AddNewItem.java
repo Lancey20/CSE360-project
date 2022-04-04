@@ -18,6 +18,8 @@ import javafx.scene.image.ImageView;
 
 public class AddNewItem extends Application
 {
+	MenuItem newItem = new MenuItem();
+	
 	@Override
 	public void start(Stage primaryStage) 
 	{
@@ -155,7 +157,6 @@ public class AddNewItem extends Application
                     return;
                 }
                 
-                MenuItem newItem = new MenuItem();
                 double price = Double.valueOf(priceField.getText());
                 Image image = new Image(imageField.getText());
                 newItem.createMenuItem(nameField.getText(), price, ingredientsField.getText(), sectionField.getText(), image);

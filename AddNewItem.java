@@ -114,7 +114,7 @@ public class AddNewItem extends Application
         gridPane.add(ingredientsField, 1,5);
         
         // Add Image Label
-        Label imageLabel = new Label("Image URL : ");
+        Label imageLabel = new Label("Upload Image : ");
         gridPane.add(imageLabel, 0,6);
 
         // Add Image Text Field

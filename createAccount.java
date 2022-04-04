@@ -222,6 +222,14 @@ public class createAccount extends Application
                     return;
                 }                
                 
+		int phoneNum = Integer.valueOf(phoneNumField.getText());
+                int creditCard = Integer.valueOf(cardNumField.getText());
+                int ccv = Integer.valueOf(ccvNumField.getText());
+                User newUser = new User();
+                newUser.createUser(nameField.getText(), passwordField.getText(), emailField.getText(), phoneNum, nameOnCardField.getText(), creditCard, billingAddrField.getText(), ccv, exprDateField.getText());
+                
+                userList.add(newUser); 
+		
                 showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Registration Successful!", "Welcome " + nameField.getText());
             }
         });

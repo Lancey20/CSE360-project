@@ -122,26 +122,7 @@ public class Menu {
 	public void addItem(MenuItem item)
 	{
 		menuList.add(item);
-		
-		
-		Label cb = new Label("\n\t" + item.getName() + "\n\t\t" + item.getPrice());
-		cb.resize(500, 75);
-		
-		VBox countbuttons = new VBox();
-		Button addtocart = new Button("Add to Cart");
-		
-		countbuttons.getChildren().addAll(addtocart);
-		countbuttons.relocate(490,20);
-		countbuttons.setPadding(new Insets(6, 6, 6, 6));
-		
-		Pane addedItem = new Pane();
-		
-		//cb.setStyle("-fx-border-color: black");
-		addedItem.setStyle("-fx-border-color: black");
-		addedItem.relocate(20, 100);
-		addedItem.getChildren().addAll(cb,countbuttons);
-		addedItem.setMinHeight(75);
-		addedItem.setMinWidth(540);
+
 		
 	}
 	

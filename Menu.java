@@ -6,9 +6,143 @@ public class Menu {
 	
 	private ArrayList<MenuItem> menuList = new ArrayList<MenuItem>(100);
 	
+	public Menu()
+	{
+		//sides**************************************
+		MenuItem fries = new MenuItem();
+		fries.setName("Fries");
+		fries.setPrice(5.00);
+		fries.setIngredients("Ingredients: Potatoes, Salt, Vegetable Oil");
+		fries.setType("Side");
+		
+		MenuItem macnCheese = new MenuItem();
+		macnCheese.setName("Mac-n-Cheese");
+		macnCheese.setPrice(5.00);
+		macnCheese.setIngredients("Ingredients: Pasta, Butter, Flour, Milk,\r\n"
+				+ "Sharp Cheddar, Salt, Black Pepper, Paprika");
+		macnCheese.setType("Side");
+		
+		MenuItem cheeseCurds = new MenuItem();
+		cheeseCurds.setName("Cheese Curds");
+		cheeseCurds.setPrice(5.00);
+		cheeseCurds.setIngredients("Ingredients: Cheese Curds, Buttermilk,\r\n"
+				+ "Baking Soda, Flour, Garlic Salt, Eggs, Vegetable Oil");
+		cheeseCurds.setType("Side");
+		
+		
+		//meals**************************************
+		MenuItem cheeseburger = new MenuItem();
+		cheeseburger.setName("Cheeseburger");
+		cheeseburger.setPrice(5.00);
+		cheeseburger.setIngredients("Ingredients: Beef patty topped with cheddar \r\n"
+				+ "cheese, lettuce, tomato, onion, \r\n"
+				+ "mayonnaise on top of a sesame bun ");
+		cheeseburger.setType("Entrees");
+		
+		MenuItem baconCheeseburger = new MenuItem();
+		baconCheeseburger.setName("Bacon Cheeseburger");
+		baconCheeseburger.setPrice(5.00);
+		baconCheeseburger.setIngredients("Ingredients: Beef patty topped with cheddar \r\n"
+				+ "cheese, lettuce, tomato, onion, bacon \r\n"
+				+ "mayonnaise on top of a sesame bun");
+		baconCheeseburger.setType("Entrees");
+		
+		MenuItem chickenSandwich = new MenuItem();
+		chickenSandwich.setName("Chicken Sandwich");
+		chickenSandwich.setPrice(5.00);
+		chickenSandwich.setIngredients("Ingredients: Crispy chicken topped with\r\n"
+				+ "cheddar cheese, lettuce, tomato, onion,\r\n"
+				+ "mayonnaise on top of a sesame bun");
+		chickenSandwich.setType("Entrees");
+		
+		MenuItem impossibleBurger = new MenuItem();
+		impossibleBurger.setName("Chicken Sandwich");
+		impossibleBurger.setPrice(5.00);
+		impossibleBurger.setIngredients("Ingredients: Impossible burger topped with\r\n"
+				+ " cheddar cheese, lettuce, tomato, onion, \r\n"
+				+ "mayonnaise on top of a sesame bun");
+		impossibleBurger.setType("Entrees");
+		
+		MenuItem doubleCheeseburger = new MenuItem();
+		doubleCheeseburger.setName("Double Cheeseburger");
+		doubleCheeseburger.setPrice(5.00);
+		doubleCheeseburger.setIngredients("Ingredients: Double burger topped with cheddar\r\n"
+				+ "cheese with lettuce, onions, mayonnaise on top\r\n"
+				+ "of a sesame bun");
+		doubleCheeseburger.setType("Entrees");
+		
+		MenuItem chickenStrips = new MenuItem();
+		chickenStrips.setName("Chicken Strips");
+		chickenStrips.setPrice(5.00);
+		chickenStrips.setIngredients("Ingredients: Breaded chicken breast\r\n"
+				+ "seasoned with garlic salt, dried basil,\r\n"
+				+ "paprika, and pepper. Served with\r\n"
+				+ "Ketchup and Mustard");
+		chickenStrips.setType("Entrees");
+		
+		//drinks**************************************
+		MenuItem soda = new MenuItem();
+		soda.setName("Soda");
+		soda.setPrice(1.00);
+		soda.setIngredients("Available options: Sprite, Coke, Pepsi, Dr. Pepper, \r\n"
+				+ "Mountain Dew, Canada Dry\r\n"
+				+ "(Decide upon pickup)");
+		soda.setType("Drinks");
+		
+		MenuItem water = new MenuItem();
+		water.setName("Water");
+		water.setPrice(1.00);
+		water.setIngredients("Ingredients: Purified Water, Magnesium Sulfate, \r\n"
+				+ "Potassium Chloride, Salt");
+		water.setType("Drinks");
+		
+		MenuItem lemonade = new MenuItem();
+		lemonade.setName("Lemonade");
+		lemonade.setPrice(1.00);
+		lemonade.setIngredients("Ingredients: Water, High Fructose Corn Syrup,\r\n"
+				+ "Citric Acid, Sodium Benzoate, Lemon Juice");
+		lemonade.setType("Drinks");
+		
+		
+		menuList.add(fries);
+		menuList.add(macnCheese);
+		menuList.add(cheeseCurds);
+		menuList.add(cheeseburger);
+		menuList.add(baconCheeseburger);
+		menuList.add(chickenSandwich);
+		menuList.add(impossibleBurger);
+		menuList.add(doubleCheeseburger);
+		menuList.add(chickenStrips);
+		menuList.add(soda);
+		menuList.add(water);
+		menuList.add(lemonade);
+		
+	}
+	
 	public void addItem(MenuItem item)
 	{
 		menuList.add(item);
+		
+		
+		Label cb = new Label("\n\t" + item.getName() + "\n\t\t" + item.getPrice());
+		cb.resize(500, 75);
+		
+		VBox countbuttons = new VBox();
+		Button addtocart = new Button("Add to Cart");
+		
+		countbuttons.getChildren().addAll(addtocart);
+		countbuttons.relocate(490,20);
+		countbuttons.setPadding(new Insets(6, 6, 6, 6));
+		
+		Pane addedItem = new Pane();
+		
+		//cb.setStyle("-fx-border-color: black");
+		addedItem.setStyle("-fx-border-color: black");
+		addedItem.relocate(20, 100);
+		addedItem.getChildren().addAll(cb,countbuttons);
+		addedItem.setMinHeight(75);
+		addedItem.setMinWidth(540);
+		
 	}
 	
 	public boolean removeItem(MenuItem item)
@@ -64,3 +198,4 @@ public class Menu {
 	}
 
 }
+

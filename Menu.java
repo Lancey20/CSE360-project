@@ -177,6 +177,11 @@ public class Menu {
 		
 		return 100000000;
 	}
+	
+		public MenuItem getAtIndex(int index)
+	{
+		return menuList.get(index);
+	}
 
 }
 

@@ -1,6 +1,6 @@
-package project360;
+package application;
 
-abstract class User {
+public class User {
 	protected String name;
 	protected String password;
 	protected String email;
@@ -12,6 +12,8 @@ abstract class User {
 	protected int ccvNum; 
 	protected String exprDate; 
 	
+	
+	//this object class is used to create a user when a user selects the create account option
 	public void createUser(String name, String password, String email, int phoneNum, String cardName, int cardNum, String addr, int ccv, String expr)
 	{
 		this.name = name; 
@@ -23,7 +25,6 @@ abstract class User {
 		billingAddr = addr; 
 		ccvNum = ccv; 
 		exprDate = expr; 
-		loginStatus = true; 
 	}
 	
 	public String getName() {
@@ -80,14 +81,14 @@ abstract class User {
 		this.name = name;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
+	public void setEmail(String email2) {
+		email = email2;
+	}
+	
 	public void setPhoneNumber(int num)
 	{
 		phoneNum = num; 
@@ -117,7 +118,5 @@ abstract class User {
 	{
 		exprDate = date; 
 	}
-	
-	public abstract Boolean login(String email, String password);
 
 }

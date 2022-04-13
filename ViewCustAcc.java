@@ -21,11 +21,24 @@ import javafx.event.EventHandler;
 
 public class ViewCustAcc extends BorderPane{
 	
-	Button menuBut;
-	Button updateAccBut;
+	private Button menuBut;
+	private Button updateAccBut;
+	private UserList tempList;
+	private User currentUser;
+	private String userName = "John Doe";
+	private int userPhoneNumber = 1234567;
+	private String userEmailString = "email@email.com";
+	private String nameOnCard = "John Doe";
+	private String billingAddress = "";
+	private int cardNumber = 0;
+	private int ccvNumber = 0;
+	private String expDateUser = "";
+	private Coupon tempCoupon;
 	
-	public ViewCustAcc() {
+	public ViewCustAcc(UserList list, Coupon coupon) {
 		
+		tempCoupon = coupon;
+		tempList = list;
 		GridPane gridPane = createCustAccView();
 		addControls(gridPane);
 		this.setCenter(gridPane);
@@ -67,6 +80,24 @@ public class ViewCustAcc extends BorderPane{
         GridPane.setHalignment(menuBut, HPos.LEFT);
         GridPane.setMargin(menuBut, new Insets(10, 0,10,0));
         
+        if(tempCoupon.getAvailable() == true)
+        {
+        	Label coupon = new Label("Coupon Available: Enter Code at Checkout");
+            coupon.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+            gridPane.add(coupon, 0, 13, 3, 1);
+            GridPane.setHalignment(coupon, HPos.LEFT);
+            
+            // Add Coupon Label
+            Label couponLabel = new Label("Coupon Code : " + tempCoupon.getCode());
+            gridPane.add(couponLabel, 0,14);
+            
+            // Add Discount Amount Label
+            Label discAmtLabel = new Label("Amount : $" + tempCoupon.getDiscount() + "0");
+            gridPane.add(discAmtLabel, 0,15);
+
+        }
+        
+        
         Label restaurantName = new Label("RESTAURANT NAME HERE");
         restaurantName.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         gridPane.add(restaurantName, 0,0,2,1);
@@ -85,8 +116,8 @@ public class ViewCustAcc extends BorderPane{
 		Label emailLab = new Label("Email");
 		
 		//textboxes in cTextBox here above cTextBox
-		TextField nameText = new TextField("John Doe");
-		TextField phoneText = new TextField("4801234567");
+		TextField nameText = new TextField(userName);
+		TextField phoneText = new TextField(String.valueOf(userPhoneNumber));
 		TextField emailText = new TextField("email@gmail.com");
 		
 		Label midLabel = new Label("Saved Payment Information");
@@ -146,8 +177,14 @@ public class ViewCustAcc extends BorderPane{
 	                alert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Please complete all fields");
 	                return;
 	            }
-	            //TODO: find the customer (search by name), set each attribute value to the getText() of the corresponding fields
-	            //		this is hardcoded rn, but needs to be updated
+	            currentUser.setName(nameText.getText());
+	    		currentUser.setPhoneNumber(Integer.parseInt(phoneText.getText()));
+	    		currentUser.setEmail(emailText.getText());
+	    		currentUser.setCardName(cardNameText.getText());
+	    		currentUser.setBillingAddr(billAddress.getText());
+	    		currentUser.setCreditCard(Integer.parseInt(cardNum.getText()));
+	    		currentUser.setCCVNum(Integer.parseInt(ccvText.getText()));
+	    		currentUser.setExpirationDate(expDateText.getText());
 	            alert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Information Updated!", "");
 	        }
 	    });
@@ -165,6 +202,31 @@ public class ViewCustAcc extends BorderPane{
 	
 	public void menuBut(Stage stage, Scene scene) {
 		menuBut.setOnAction(e -> stage.setScene(scene));
+	}
+	
+	public void setValues()
+	{
+		if(tempList.numOfUsers() > 1)
+		{
+		for(int i = 0; i < tempList.numOfUsers(); i++)
+		{
+			if(tempList.getUser(i).getLoginStatus() == true)
+			{
+				currentUser = tempList.getUser(i);
+			}
+		}
+		
+		
+		userName = currentUser.getName();
+		userPhoneNumber = currentUser.getPhoneNumber();
+		userEmailString = currentUser.getEmail();
+		nameOnCard = currentUser.getCardName();
+		billingAddress = currentUser.getBillingAddr();
+		cardNumber = currentUser.getCreditCard();
+		ccvNumber = currentUser.getCCVNum();
+		expDateUser = currentUser.getExpirationDate();
+
+		}
 	}
 
 }
